@@ -1,10 +1,9 @@
 {
 	"info": {
-		"_postman_id": "92477c40-d130-4bde-8a3d-fb96ec839c12",
+		"_postman_id": "b21663d9-a057-43a6-87bf-af0d90acb340",
 		"name": "Book Store",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-		"_exporter_id": "47474508",
-		"_collection_link": "https://patelmann2212-6751257.postman.co/workspace/7fee805f-97f4-43bf-8b19-005e3e7b71a2/collection/47474508-92477c40-d130-4bde-8a3d-fb96ec839c12?action=share&source=collection_link&creator=47474508"
+		"_exporter_id": "29232559"
 	},
 	"item": [
 		{
@@ -13,7 +12,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://127.0.0.1:5000/books",
+					"raw": "http://127.0.0.1:5000/books?genre=Programming&search=pro",
 					"protocol": "http",
 					"host": [
 						"127",
@@ -24,8 +23,19 @@
 					"port": "5000",
 					"path": [
 						"books"
+					],
+					"query": [
+						{
+							"key": "genre",
+							"value": "Programming"
+						},
+						{
+							"key": "search",
+							"value": "pro"
+						}
 					]
-				}
+				},
+				"description": "**Get All Books API**\n\n- **Endpoint:** `GET http://127.0.0.1:5000/books`\n    \n- **Purpose:** This endpoint is used to **fetch all books** stored in the system.\n    \n- **Response:** Returns a list of all books with details like `id`, `title`, `author`, `publisher`, `edition`, `language`, `pages`, `genre`, `price`, `rating`, and `stock_status.`\n    \n\n**Query Parameters (optional):**\n\n- `search` → Search across `title`, `author`, and `genre` (partial matches allowed).\n    \n- `title` → Filter books by title (partial match).\n    \n- `author` → Filter books by author (partial match).\n    \n- `genre` → Filter books by genre (partial match).\n    \n- `min_price` → Filter books with price greater than or equal to this value.\n    \n- `max_price` → Filter books with price less than or equal to this value."
 			},
 			"response": []
 		},
@@ -36,7 +46,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 1,\r\n    \"title\": \"Clean Code: A Handbook of Agile Software Craftsmanship\",\r\n    \"author\": \"Robert C. Martin\",\r\n    \"publisher\": \"Prentice Hall\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 464,\r\n    \"genre\": \"Programming\",\r\n    \"price\": 499.99,\r\n    \"rating\": 4.8,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"Clean Code: A Handbook of Agile Software Craftsmanship\",\r\n    \"author\": \"Robert C. Martin\",\r\n    \"publisher\": \"Prentice Hall\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 464,\r\n    \"genre\": \"Programming\",\r\n    \"price\": 499.99,\r\n    \"rating\": 4.8,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -56,7 +66,8 @@
 					"path": [
 						"books"
 					]
-				}
+				},
+				"description": "### **Add Book API**\n\n- **Endpoint:** `POST http://127.0.0.1:5000/books`\n    \n- **Purpose:** This endpoint is used to **add a new book** to the system.\n    \n- **Content-Type:** `application/json`\n    \n- **Request Body:** You need to provide book details such as:\n    \n    - `title` → Book title\n        \n    - `author` → Author name\n        \n    - `publisher` → Publisher name\n        \n    - `edition` → Edition of the book\n        \n    - `language` → Language of the book\n        \n    - `pages` → Number of pages\n        \n    - `genre` → Genre/category\n        \n    - `price` → Price of the book\n        \n    - `rating` → Book rating\n        \n    - `stock_status` → Availability status"
 			},
 			"response": []
 		},
@@ -67,7 +78,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 2,\r\n    \"title\": \"The Pragmatic Programmer: Your Journey to Mastery\",\r\n    \"author\": \"Andrew Hunt, David Thomas\",\r\n    \"publisher\": \"Addison-Wesley\",\r\n    \"edition\": \"20th Anniversary Edition\",\r\n    \"language\": \"English\",\r\n    \"pages\": 352,\r\n    \"genre\": \"Software Development\",\r\n    \"price\": 599.00,\r\n    \"rating\": 4.7,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"The Pragmatic Programmer: Your Journey to Mastery\",\r\n    \"author\": \"Andrew Hunt, David Thomas\",\r\n    \"publisher\": \"Addison-Wesley\",\r\n    \"edition\": \"20th Anniversary Edition\",\r\n    \"language\": \"English\",\r\n    \"pages\": 352,\r\n    \"genre\": \"Software Development\",\r\n    \"price\": 599.00,\r\n    \"rating\": 4.7,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -87,7 +98,8 @@
 					"path": [
 						"books"
 					]
-				}
+				},
+				"description": "### **Add Book API**\n\n- **Endpoint:** `POST http://127.0.0.1:5000/books`\n    \n- **Purpose:** This endpoint is used to **add a new book** to the system.\n    \n- **Content-Type:** `application/json`\n    \n- **Request Body:** You need to provide book details such as:\n    \n    - `title` → Book title\n        \n    - `author` → Author name\n        \n    - `publisher` → Publisher name\n        \n    - `edition` → Edition of the book\n        \n    - `language` → Language of the book\n        \n    - `pages` → Number of pages\n        \n    - `genre` → Genre/category\n        \n    - `price` → Price of the book\n        \n    - `rating` → Book rating\n        \n    - `stock_status` → Availability status"
 			},
 			"response": []
 		},
@@ -98,7 +110,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "{\r\n    \"id\": 3,\r\n    \"title\": \"Introduction to Algorithms\",\r\n    \"author\": \"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"3rd\",\r\n    \"language\": \"English\",\r\n    \"pages\": 1312,\r\n    \"genre\": \"Computer Science\",\r\n    \"price\": 899.00,\r\n    \"rating\": 4.6,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
+					"raw": "{\r\n    \"title\": \"Introduction to Algorithms\",\r\n    \"author\": \"Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"3rd\",\r\n    \"language\": \"English\",\r\n    \"pages\": 1312,\r\n    \"genre\": \"Computer Science\",\r\n    \"price\": 899.00,\r\n    \"rating\": 4.6,\r\n    \"stock_status\": \"available\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -118,7 +130,8 @@
 					"path": [
 						"books"
 					]
-				}
+				},
+				"description": "### **Add Book API**\n\n- **Endpoint:** `POST http://127.0.0.1:5000/books`\n    \n- **Purpose:** This endpoint is used to **add a new book** to the system.\n    \n- **Content-Type:** `application/json`\n    \n- **Request Body:** You need to provide book details such as:\n    \n    - `title` → Book title\n        \n    - `author` → Author name\n        \n    - `publisher` → Publisher name\n        \n    - `edition` → Edition of the book\n        \n    - `language` → Language of the book\n        \n    - `pages` → Number of pages\n        \n    - `genre` → Genre/category\n        \n    - `price` → Price of the book\n        \n    - `rating` → Book rating\n        \n    - `stock_status` → Availability status"
 			},
 			"response": []
 		},
@@ -129,7 +142,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"Deep Learning\",\r\n    \"author\": \"Ian Goodfellow, Yoshua Bengio, Aaron Courville\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 775,\r\n    \"genre\": \"Artificial Intelligence\",\r\n    \"price\": 749.50,\r\n    \"rating\": 4.5,\r\n    \"stock_status\": \"out of stock\"\r\n}\r\n",
+					"raw": "\r\n{\r\n    \"title\": \"Deep Learning\",\r\n    \"author\": \"Ian Goodfellow, Yoshua Bengio, Aaron Courville\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 775,\r\n    \"genre\": \"Artificial Intelligence\",\r\n    \"price\": 749.50,\r\n    \"rating\": 4.5,\r\n    \"stock_status\": \"out of stock\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -149,7 +162,8 @@
 					"path": [
 						"books"
 					]
-				}
+				},
+				"description": "### **Add Book API**\n\n- **Endpoint:** `POST http://127.0.0.1:5000/books`\n    \n- **Purpose:** This endpoint is used to **add a new book** to the system.\n    \n- **Content-Type:** `application/json`\n    \n- **Request Body:** You need to provide book details such as:\n    \n    - `title` → Book title\n        \n    - `author` → Author name\n        \n    - `publisher` → Publisher name\n        \n    - `edition` → Edition of the book\n        \n    - `language` → Language of the book\n        \n    - `pages` → Number of pages\n        \n    - `genre` → Genre/category\n        \n    - `price` → Price of the book\n        \n    - `rating` → Book rating\n        \n    - `stock_status` → Availability status"
 			},
 			"response": []
 		},
@@ -173,7 +187,8 @@
 						"id",
 						"1"
 					]
-				}
+				},
+				"description": "**Get Book by ID API**\n\n- **Endpoint:** `GET http://127.0.0.1:5000/books/id/{id}`\n    \n- **Example:** `http://127.0.0.1:5000/books/id/1`\n    \n- **Purpose:** This endpoint is used to **fetch a single book’s details** using its unique `id`.\n    \n- **Response:** Returns the book object if the given `id` exists, otherwise returns a not found message."
 			},
 			"response": []
 		},
@@ -197,7 +212,8 @@
 						"author",
 						"Thomas H. Cormen"
 					]
-				}
+				},
+				"description": "**Get Book by AuthorAPI**\n\n- **Endpoint:** `GET http://127.0.0.1:5000/books/author/{author_name}`\n    \n- **Example:** http://127.0.0.1:5000/books/author/Thomas H. Cormen\n    \n- **Purpose:** This endpoint is used to **fetch list of books** using its author name\n    \n- **Response:** Returns the book object if the given `id` exists, otherwise returns a not found message."
 			},
 			"response": []
 		},
@@ -208,7 +224,7 @@
 				"header": [],
 				"body": {
 					"mode": "raw",
-					"raw": "\r\n{\r\n    \"id\": 4,\r\n    \"title\": \"Deep Learning\",\r\n    \"author\": \"Ian Goodfellow, Yoshua Bengio, Aaron Courville\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 775,\r\n    \"genre\": \"Artificial Intelligence\",\r\n    \"price\": 899.00,\r\n    \"rating\": 4.5,\r\n    \"stock_status\": \"out of stock\"\r\n}\r\n",
+					"raw": "\r\n{\r\n    \"title\": \"Deep Learning\",\r\n    \"author\": \"Ian Goodfellow, Yoshua Bengio, Aaron Courville\",\r\n    \"publisher\": \"MIT Press\",\r\n    \"edition\": \"1st\",\r\n    \"language\": \"English\",\r\n    \"pages\": 775,\r\n    \"genre\": \"Artificial Intelligence\",\r\n    \"price\": 899.00,\r\n    \"rating\": 4.5,\r\n    \"stock_status\": \"out of stock\"\r\n}\r\n",
 					"options": {
 						"raw": {
 							"language": "json"
@@ -230,7 +246,8 @@
 						"id",
 						"4"
 					]
-				}
+				},
+				"description": "**Update Book API**\n\n- **Endpoint:** `PUT http://127.0.0.1:5000/books/id/{id}`\n    \n- **Example:** `http://127.0.0.1:5000/books/id/4`\n    \n- **Purpose:** This endpoint is used to **update an existing book’s details** using its `id`.\n    \n- **Headers:**\n    \n    - `Content-Type: application/json`\n        \n- **Request Body:** Provide the fields you want to update (e.g., `title`, `author`, `price`, etc.)"
 			},
 			"response": []
 		},
@@ -258,7 +275,8 @@
 						"id",
 						"4"
 					]
-				}
+				},
+				"description": "**Delete Book API**\n\n- **Endpoint:** `DELETE http://127.0.0.1:5000/books/id/{id}`\n    \n- **Example:** `http://127.0.0.1:5000/books/id/4`\n    \n- **Purpose:** This endpoint is used to **remove a book** from the system using its `id`.\n    \n- **Response:**\n    \n    - ✅ If the book exists → returns a success message confirming deletion.\n        \n    - ❌ If the book does not exist → returns a not found message."
 			},
 			"response": []
 		}
